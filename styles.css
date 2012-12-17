@@ -1,0 +1,31 @@
+﻿code{
+    background-color:#efefef;
+    display:block;
+    margin:1em;
+    border-color:#aaaaaa;
+    border-width:1px;
+    border-style:solid;
+    width:50em;
+    padding:1em;
+    color: blue;
+}
+pre{
+    margin:0.2em;
+}
+
+#header{
+    font-size:2em;
+}
+
+#header, #about, #versions, #introduction, #examples{
+    padding:0.5em;
+}
+
+code.result:before {
+  content: "Result: ";
+  color:darkred;
+}
+code.implementation:before {
+  content: "Implementation: ";
+  color:green;
+}

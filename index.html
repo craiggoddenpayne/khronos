@@ -1,0 +1,142 @@
+﻿<html>
+<head>
+    <script type="text/javascript" src="khronos.js">
+    </script>
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="body">
+        <div id="header">
+            Khronos.js A comprehensive javascript Date extender
+        </div>
+        <div id="content">
+            <div id="introduction">
+                Lets face it, the Javascript Date object is basic, it contains issues that can catch you out (e.g. the year bug)
+                You're probably also sick of writing functions to perform simple functionality, well say hello to Khronos!
+            </div>
+            <div id="about">
+                Khronos is a javascript library that adds a whole load of functionality to the javascript Date object. It brings
+                with it a plethora of functions that turn the Date object into something a bit more exciting. Its small, fast 
+                and easy to use!
+            </div>
+            <div id="versions">
+                Version 1.0 when minified weighs in a 1kb
+            </div>
+            <div id="examples">
+                Here are some examples of how to use Khronos!
+                <br />
+                <div id="today">
+                    You can get todays date by calling the today method.
+                    <code class="implementation">new Date().today();</code>
+                    <code class="result"><span id="exampleToday"></span></code>
+                </div>
+
+                <div id="adding">
+                    You can easily add amounts of time to a date object using the various add methods.
+                    <code class="implementation">
+                        <pre>new Date();</pre>
+                        <pre>new Date().addMillisecond(1000); //Adds 1000 milliseconds to the date object</pre>
+                        <pre>new Date().addSecond(2); //Adds 2 seconds to the date object</pre>
+                        <pre>new Date().addMinute(3); //Adds 3 minutes to the date object</pre>
+                        <pre>new Date().addHour(4); //Adds 4 hours to the date object</pre>
+                        <pre>new Date().addDay(5); //Adds 5 days to the date object</pre>
+                        <pre>new Date().addWeek(6); //Adds 6 weeks to the date object</pre>
+                        <pre>new Date().addMonth(7); //Adds 7 months to the date object</pre>
+                        <pre>new Date().addYear(8); //Adds 8 years to the date object.</pre>
+                    </code>
+                    <code class="result"><span id="exampleAdding"></span></code>
+                </div>
+                <div id="adding2">
+                    You can also subtract values by adding negative values.
+                    <code class="implementation">
+                        <pre>new Date();</pre>
+                        <pre>new Date().addHour(-4); //Takes away 4 hours from the date object</pre>
+                    </code>
+                    <code class="result"><span id="exampleAdding2"></span></code>
+
+                </div>
+                <div id="adding3">
+                    You can stack the add methods to build up bits of time.
+                    <code class="implementation">
+                        <pre>var date = new Date();</pre>
+                        <pre>date.addHour(-4).addMinutes(4); //Takes away 4 hours and adds 4 minutes</pre>
+                     </code>
+                    <code class="result"><span id="exampleAdding3"></span></code>
+                </div>
+                <div id="adding4">
+                    You can even pass amount values in a parameter list or object.
+                    <code class="implementation">
+                        <pre>new Date();</pre>
+                        <pre>new Date().add(1,2,3,4,5,6,7); //Adds 1year,2months,3days,4hours,5mins,6secs,7ms</pre>
+                        <pre>new Date().add(0,2,0,4); //Adds 2months and 4hours</pre>
+                        <pre>new Date().add({hours:1, minutes:5}); //Adds 1hour and 5minutes</pre>
+                     </code>
+                    <code class="result"><span id="exampleAdding4"></span></code>
+                </div>
+
+            </div>
+        </div>
+        <div id="footer">
+            Created by Craig Payne, check out my blog: <a href="http://www.craigpayne.info">http://www.craigpayne.info</a>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        (function () {
+            var today = new Date().today();
+            document.getElementById("exampleToday").innerHTML = today.toString();
+
+            //adding
+            var adding = new Date();
+            var addingMillisecond = new Date(adding).addMilliseconds(1000);
+            var addingSecond = new Date(adding).addSeconds(2);
+            var addingMinute = new Date(adding).addMinutes(3);
+            var addingHour = new Date(adding).addHours(4);
+            var addingDay = new Date(adding).addDays(5);
+            var addingWeek = new Date(adding).addWeeks(6);
+            var addingMonth = new Date(adding).addMonths(7);
+            var addingYear = new Date(adding).addYears(8);
+            document.getElementById("exampleAdding").innerHTML =
+                "<pre>Now = " + adding.toString() +
+                "</pre><pre>Now + 1000 ms = " + addingMillisecond.toString() +
+                "</pre><pre>Now + 2 sec = " + addingSecond.toString() +
+                "</pre><pre>Now + 3 mins = " + addingMinute.toString() +
+                "</pre><pre>Now + 4 hours = " + addingHour.toString() +
+                "</pre><pre>Now + 5 days = " + addingDay.toString() +
+                "</pre><pre>Now + 6 weeks = " + addingWeek.toString() +
+                "</pre><pre>Now + 7 months = " + addingMonth.toString() +
+                "</pre><pre>Now + 8 years = " + addingYear.toString() + "</pre>";
+
+
+            //Adding2
+            var adding = new Date();
+            var addingHour = new Date(adding).addHours(-4);
+            document.getElementById("exampleAdding2").innerHTML =
+                "<pre>Now = " + adding.toString() +
+                "</pre><pre>Now - 4 hours = " + addingHour.toString() + "</pre>";
+
+            //Adding3
+            var adding = new Date();
+            var addingResult = new Date(adding).addHours(-4).addMinutes(4);
+            document.getElementById("exampleAdding3").innerHTML =
+                "<pre>Now = " + adding.toString() +
+                "</pre><pre>Now - 4 hours + 4 minutes = " + addingResult.toString() + "</pre>";
+
+            //Adding4
+            var adding = new Date();
+            var addingResult1 = new Date(adding).add(1,2,3,4,5,6,7);
+            var addingResult2 = new Date(adding).add(0,2,0,4); 
+            
+            document.getElementById("exampleAdding4").innerHTML =
+                "<pre>Now = " + adding.toString() +
+                "</pre><pre>Now + 1year,2months,3days,4hours,5mins,6secs,7ms = " + addingResult1.toString() + 
+                "</pre><pre>Now + 2months and 4hours = " + addingResult2.toString() + "</pre>";
+//            <pre>new Date().add({hours:1, minutes:5}); //Adds 1hour and 5minutes</pre>
+
+
+
+        })();
+    </script>
+</body>
+</html>
